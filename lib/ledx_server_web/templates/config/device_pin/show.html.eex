@@ -1,0 +1,24 @@
+<h2>Show Device Pin</h2>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @device_pin.name %>
+  </li>
+
+  <li>
+    <strong>Pin:</strong>
+    <%= @device_pin.pin %>
+  </li>
+
+  <li>
+    <strong>Led count:</strong>
+    <%= @device_pin.led_count %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: config_device_pin_path(@conn, :edit, @device_id, @device_pin) %></span>
+<br />
+<span><%= link "Back", to: config_device_pin_path(@conn, :index, @device_id) %></span>

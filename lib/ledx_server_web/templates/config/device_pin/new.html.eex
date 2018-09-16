@@ -1,0 +1,5 @@
+<h2>New Device Pin</h2>
+
+<%= render "form.html", Map.put(assigns, :action, config_device_pin_path(@conn, :create, @device_id)) %>
+
+<span><%= link "Back", to: config_device_pin_path(@conn, :index, @device_id) %></span>

@@ -1,0 +1,32 @@
+<h2>Listing Device Pins</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Pin</th>
+      <th>Led Count</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for device_pin <- @device_pins do %>
+    <tr>
+      <td><%= device_pin.name %></td>
+      <td><%= device_pin.pin %></td>
+      <td><%= device_pin.led_count %></td>
+
+      <td class="text-right">
+        <span><%= link "Show", to: config_device_pin_path(@conn, :show, @device_id, device_pin), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Edit", to: config_device_pin_path(@conn, :edit, @device_id, device_pin), class: "btn btn-default btn-xs" %></span>
+        <span><%= link "Delete", to: config_device_pin_path(@conn, :delete, @device_id, device_pin), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %></span>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<span><%= link "New Device Pin", to: config_device_pin_path(@conn, :new, @device_id) %></span>
+<br />
+<span><%= link "Device", to: config_device_path(@conn, :show, @device_id) %></span>

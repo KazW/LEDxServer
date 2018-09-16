@@ -1,0 +1,24 @@
+<h2>Show Device</h2>
+
+<ul>
+  <li>
+    <strong>Name:</strong>
+    <%= @device.name %>
+  </li>
+
+  <li>
+    <strong>Hardware ID:</strong>
+    <%= @device.hardware_id %>
+  </li>
+
+  <li>
+    <strong>Powered On:</strong>
+    <%= @device.powered_on %>
+  </li>
+</ul>
+
+<span><%= link "Device Pins", to: config_device_pin_path(@conn, :index, @device) %></span>
+<br />
+<span><%= link "Edit", to: config_device_path(@conn, :edit, @device) %></span>
+<br />
+<span><%= link "Back", to: config_device_path(@conn, :index) %></span>
