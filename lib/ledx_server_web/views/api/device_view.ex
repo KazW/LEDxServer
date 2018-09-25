@@ -17,7 +17,12 @@ defmodule LEDxServerWeb.API.DeviceView do
       name: device.name,
       hardware_id: device.hardware_id,
       powered_on: device.powered_on,
-      pins: render_many(device.pins, PinView, "device_pin.json", as: :device_pin)
+      pins: render_many(device.pins, PinView, "device_pin.json", as: :device_pin),
+      last_update:
+        device.updated_at
+        |> NaiveDateTime.to_erl()
+        |> :calendar.datetime_to_gregorian_seconds()
+        |> Kernel.-(62_167_219_200)
     }
   end
 end
